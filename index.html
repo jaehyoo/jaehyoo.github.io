@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="jaehyoo — Firmware Engineer focused on embedded systems, Linux, and platform firmware.">
+  <title>jaehyoo | Firmware Engineer</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="wordmark" href="#home" aria-label="jaehyoo home"><span class="wordmark-mark">JH</span><span>jaehyoo</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span><span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#focus">Expertise</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-cta">Get in touch <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section" id="home">
+      <div class="hero-grid container">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Firmware · Embedded Systems · Linux</p>
+          <h1>Building reliable software <span class="gradient-text">close to the hardware.</span></h1>
+          <p class="hero-lede">I'm jaehyoo, a firmware engineer interested in platform software, embedded Linux, and the systems that make complex hardware work reliably.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
+            <a class="button button-secondary" href="#contact">Contact me <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-meta">
+            <div><span class="meta-label">FOCUS</span><span>Platform firmware</span></div>
+            <div><span class="meta-label">INTERESTS</span><span>OpenBMC · Linux · Debugging</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Decorative illustration of a system board and code">
+          <div class="visual-glow"></div>
+          <div class="circuit circuit-one"></div><div class="circuit circuit-two"></div>
+          <div class="code-window">
+            <div class="window-bar"><span></span><span></span><span></span><p>platform_status.c</p></div>
+            <div class="code-lines" aria-hidden="true">
+              <div><i>01</i><span class="code-purple">static int</span> <span class="code-blue">platform_init</span>(void)</div>
+              <div><i>02</i>{</div>
+              <div><i>03</i>&nbsp;&nbsp;<span class="code-purple">if</span> (!hardware_ready())</div>
+              <div><i>04</i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-pink">return</span> -EAGAIN;</div>
+              <div><i>05</i></div>
+              <div><i>06</i>&nbsp;&nbsp;register_platform_services();</div>
+              <div><i>07</i>&nbsp;&nbsp;<span class="code-purple">return</span> 0;</div>
+              <div><i>08</i>}</div>
+            </div>
+            <div class="terminal-status"><span class="status-dot"></span> system ready <span class="terminal-right">build: passing</span></div>
+          </div>
+          <div class="floating-chip chip-top"><span class="chip-icon">⌘</span><div><strong>Embedded Linux</strong><small>System-level software</small></div></div>
+          <div class="floating-chip chip-bottom"><span class="chip-icon chip-green">✓</span><div><strong>Reliability first</strong><small>Debug · Verify · Improve</small></div></div>
+          <div class="visual-caption">HARDWARE MEETS SOFTWARE <span>01 / 04</span></div>
+        </div>
+      </div>
+      <div class="hero-bottom container"><span>SCROLL TO EXPLORE</span><div class="scroll-line"></div><span class="hero-bottom-right">PERSONAL PORTFOLIO <span class="tiny-square"></span></span></div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="container section-grid">
+        <div class="section-heading">
+          <p class="eyebrow">01 — ABOUT</p>
+          <h2>Engineering with a <span class="gradient-text">systems mindset.</span></h2>
+        </div>
+        <div class="about-content">
+          <p class="large-copy">I work at the intersection of firmware, operating systems, and hardware behavior—where details matter and the root cause is not always obvious.</p>
+          <p>This site is a home for selected projects, technical notes, and lessons learned from building and debugging embedded platforms. I value clear interfaces, maintainable code, thoughtful collaboration, and evidence-driven problem solving.</p>
+          <div class="principles">
+            <div><span class="principle-number">01</span><strong>Understand the system</strong><p>Follow behavior across hardware, firmware, and software layers.</p></div>
+            <div><span class="principle-number">02</span><strong>Make it observable</strong><p>Use logs, traces, registers, and reproducible tests to find the facts.</p></div>
+            <div><span class="principle-number">03</span><strong>Keep it maintainable</strong><p>Prefer clear designs that teams can reason about and extend.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section focus-section" id="focus">
+      <div class="container">
+        <div class="section-heading section-heading-wide">
+          <div><p class="eyebrow">02 — EXPERTISE</p><h2>Areas I <span class="gradient-text">work in.</span></h2></div>
+          <p class="section-intro">A practical, systems-level approach to firmware development and platform integration.</p>
+        </div>
+        <div class="expertise-grid">
+          <article class="expertise-card"><div class="card-icon">⌘</div><span class="card-index">01</span><h3>Embedded Linux</h3><p>Platform bring-up, services, system integration, and troubleshooting across the Linux stack.</p><div class="tag-list"><span>Linux</span><span>Yocto</span><span>Systemd</span></div></article>
+          <article class="expertise-card"><div class="card-icon">▦</div><span class="card-index">02</span><h3>Platform Firmware</h3><p>Management-controller behavior, hardware status, power sequencing, and firmware update flows.</p><div class="tag-list"><span>OpenBMC</span><span>BMC</span><span>IPMI / Redfish</span></div></article>
+          <article class="expertise-card"><div class="card-icon">⌁</div><span class="card-index">03</span><h3>Hardware Interfaces</h3><p>Low-level interfaces and register-level integration between silicon, logic, and platform software.</p><div class="tag-list"><span>I²C / I3C</span><span>GPIO</span><span>Registers</span></div></article>
+          <article class="expertise-card"><div class="card-icon">⌕</div><span class="card-index">04</span><h3>Debug & Reliability</h3><p>Root-cause analysis, failure handling, observability, and repeatable validation workflows.</p><div class="tag-list"><span>Tracing</span><span>Crash analysis</span><span>Automation</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-heading section-heading-wide">
+          <div><p class="eyebrow">03 — SELECTED WORK</p><h2>Apps &amp; <span class="gradient-text">side projects.</span></h2></div>
+          <p class="section-intro">Things I build in my own time.</p>
+        </div>
+        <div class="project-list">
+          <article class="project-card">
+            <div class="project-art art-nudge"><div class="art-label">ANDROID / 01</div><img class="app-icon" src="assets/nudge-icon.png" alt="Nudge app icon" width="128" height="128"></div>
+            <div class="project-details"><div class="project-kicker">ANDROID APP</div><h3>Nudge &mdash; Touchpad &amp; Jiggler</h3><p>Turns an Android phone into a Bluetooth touchpad and mouse jiggler that keeps a PC awake with nothing to install on the PC, or moves a real mouse placed on the phone screen.</p><div class="tag-list"><span>Kotlin</span><span>Bluetooth HID</span><span>Android</span></div><p class="project-links"><a href="nudge/privacy/">Privacy policy</a><a href="nudge/terms/">Terms of use</a></p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach-section">
+      <div class="container approach-panel">
+        <div><p class="eyebrow">HOW I WORK</p><h2>Curious by default.<br><span class="gradient-text">Methodical by design.</span></h2></div>
+        <div class="approach-steps"><div><span>01</span><p><strong>Observe</strong><br>Gather facts before forming a theory.</p></div><div><span>02</span><p><strong>Isolate</strong><br>Reduce the problem to a testable boundary.</p></div><div><span>03</span><p><strong>Validate</strong><br>Confirm the fix and document the result.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-panel">
+        <div><p class="eyebrow">04 — CONTACT</p><h2>Have a good problem<br>to <span class="gradient-text">solve?</span></h2><p class="contact-copy">I'm always interested in thoughtful engineering conversations and useful technical exchanges.</p></div>
+        <div class="contact-links">
+          <a class="contact-link" href="https://github.com/jaehyoo" target="_blank" rel="noreferrer"><span class="contact-link-icon">GH</span><span><small>GITHUB</small><strong>github.com/jaehyoo</strong></span><span class="arrow">↗</span></a>
+          <a class="contact-link" href="mailto:jaehyoo.apps@gmail.com"><span class="contact-link-icon">@</span><span><small>EMAIL</small><strong>jaehyoo.apps@gmail.com</strong></span><span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a class="wordmark" href="#home"><span class="wordmark-mark">JH</span><span>jaehyoo</span></a><p>Built with care. Hosted on GitHub Pages.</p><a href="#home" class="back-top">Back to top ↑</a><span class="copyright">© <span id="year">2026</span> jaehyoo</span></div></footer>
+</body>
+</html>
