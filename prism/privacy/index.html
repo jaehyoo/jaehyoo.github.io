@@ -31,16 +31,18 @@ jaehyoo ("we"). This policy explains what information the app handles and why.</
 <h2>Summary</h2>
 <ul>
   <li>Sound is analyzed on your phone as it arrives and is never recorded, saved or sent anywhere.</li>
-  <li>We do not run any servers and do not collect personal information.</li>
-  <li>The app has no ads, no analytics, no accounts and no in-app purchases.</li>
+  <li>We do not run any servers and do not collect personal information ourselves.</li>
   <li>Your settings stay on your phone.</li>
+  <li>The free version shows an ad from Google AdMob when you open the settings, at most once
+      every 10 minutes, and AdMob collects some device information as described below.</li>
+  <li>The "Remove ads" purchase is handled entirely by Google Play.</li>
 </ul>
 
 <h2>Audio</h2>
 <p>While the analyzer screen is open, the app reads short blocks of audio, turns them into
 frequency levels and draws them, then discards the audio. Nothing is written to storage and
-nothing leaves the phone. The app has no internet permission, so it cannot send audio or
-anything else over the network.</p>
+no audio leaves the phone. The app's internet access is used only by the Google AdMob and
+Google Play Billing libraries described below, which never receive audio.</p>
 <p>When you choose internal audio as the input, Android asks you to allow screen capture.
 The app uses this only to receive the sound other apps play (media, games and unlabeled
 audio, as Android allows); it does not capture or read the screen image. Calls, notifications
@@ -49,9 +51,14 @@ notification is shown for as long as the capture is active, and you can stop it 
 or by switching back to the microphone.</p>
 
 <h2>Information stored on your device</h2>
-<p>The app stores only your settings, such as the band resolution, peak hold, theme, language,
-input and screen rotation, on your phone. Uninstalling the app or clearing its data removes
-them.</p>
+<p>The app stores the following only on your phone. It is never sent to us:</p>
+<ul>
+  <li>Your settings, such as the band resolution, peak hold, theme, language, input and screen
+      rotation.</li>
+  <li>Whether you bought "Remove ads", and when the last ad was shown, so ads stay at most once
+      every 10 minutes.</li>
+</ul>
+<p>Uninstalling the app or clearing its data removes this information.</p>
 
 <h2>Permissions</h2>
 <ul>
@@ -61,9 +68,34 @@ them.</p>
       apps' sound through its screen capture consent; you are asked each time you start it.</li>
   <li><strong>Notifications:</strong> asked before the first internal audio capture, to show
       that the capture is active and let you stop it.</li>
+  <li><strong>Internet and network state:</strong> used by Google AdMob to load ads and by
+      Google Play Billing for the purchase.</li>
+  <li><strong>Advertising ID:</strong> used by Google AdMob as described under Advertising.</li>
   <li><strong>Foreground service:</strong> to keep the internal audio capture open while you
       switch between the analyzer and its settings, with a notification showing it is active.</li>
 </ul>
+
+<h2>Advertising</h2>
+<p>The free version shows a full-screen ad provided by Google AdMob when you open the settings,
+at most once every 10 minutes. To serve and measure ads,
+Google may collect information such as your device's advertising ID, IP address, device
+model, operating system and how you interact with ads. Google's use of this information is
+described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and
+<a href="https://policies.google.com/technologies/partner-sites">How Google uses information
+from sites or apps that use its services</a>.</p>
+<p>If you are in the European Economic Area, the United Kingdom or Switzerland, the app asks
+for your consent before personalized ads are shown, and you can change your choice later under
+Settings &gt; Ads &gt; Ad privacy settings in the app. Anywhere, you can reset your advertising
+ID or opt out of personalized ads in your phone's settings (Settings &gt; Google &gt; Ads, or
+Settings &gt; Privacy &gt; Ads).</p>
+<p>After you buy "Remove ads", the app no longer loads ads.</p>
+
+<h2>Purchases</h2>
+<p>The one-time "Remove ads" purchase, which also unlocks the color themes and the light/dark
+choice, is processed by Google Play. We never receive your payment details. The app only
+receives confirmation from Google Play that the purchase was made, so it can turn off ads and
+restore the purchase on your other devices.
+See the <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&amp;ldt=privacynotice">Google Payments Privacy Notice</a>.</p>
 
 <h2>Children</h2>
 <p>The app is not directed at children under 13, and we do not knowingly collect information
