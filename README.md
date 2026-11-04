@@ -5,4 +5,5 @@ Personal homepage and app pages, served by GitHub Pages at https://jaehyoo.githu
 - `index.html`, `styles.css`, `script.js`, `assets/`: homepage
 - `nudge/privacy/`, `nudge/terms/`: Nudge privacy policy and terms of use
 - `prism/privacy/`, `prism/terms/`: Prism privacy policy and terms of use
+- `tugosea/privacy/`, `tugosea/terms/`: Tug o' Sea privacy policy and terms of use
 - `app-ads.txt`: AdMob seller declaration for the apps listed with this site
