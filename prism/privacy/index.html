@@ -22,7 +22,7 @@
 <body>
 <main>
 <h1>Prism Privacy Policy</h1>
-<p class="date">Effective date: October 23, 2026</p>
+<p class="date">Effective date: November 13, 2026</p>
 
 <p>Prism ("the app") is an Android app that shows the frequency spectrum of the sound picked
 up by the phone's microphone, or of the sound other apps play on the phone. It is developed by
@@ -40,7 +40,7 @@ jaehyoo ("we"). This policy explains what information the app handles and why.</
 </ul>
 
 <h2>Audio</h2>
-<p>While the analyzer screen is open, the app reads short blocks of audio, turns them into
+<p>While the analyzer screen or the floating window is open, the app reads short blocks of audio, turns them into
 frequency levels and draws them, then discards the audio. Nothing is written to storage and
 no audio leaves the phone. The app's internet access is used only by the Google AdMob and
 Google Play Billing libraries described below, which never receive audio.</p>
@@ -50,12 +50,17 @@ audio, as Android allows); it does not capture or read the screen image. Calls, 
 and system sounds are not captured, and apps can block capture of their own sound. A
 notification is shown for as long as the capture is active, and you can stop it from there
 or by switching back to the microphone.</p>
+<p>The floating window, which you open with its button or the launcher shortcut, keeps the
+spectrum in a see-through window over other apps. While it is open, the app keeps reading
+the microphone, or the internal audio capture you already started, in a foreground service,
+and shows a notification. It stops when you close the window, tap Close in the notification
+or open the app. The window only draws the spectrum; it does not read what other apps show.</p>
 
 <h2>Information stored on your device</h2>
 <p>The app stores the following only on your phone. It is never sent to us:</p>
 <ul>
   <li>Your settings, such as the band resolution, peak hold, theme, language, input and screen
-      rotation.</li>
+      rotation, and where on the screen the floating window was last placed.</li>
   <li>Whether you bought "Remove ads", and when the last ad was shown, so ads stay at most once
       every 10 minutes.</li>
 </ul>
@@ -68,12 +73,15 @@ or by switching back to the microphone.</p>
   <li><strong>Screen capture (internal audio only):</strong> Android grants access to other
       apps' sound through its screen capture consent; you are asked each time you start it.</li>
   <li><strong>Notifications:</strong> asked before the first internal audio capture, to show
-      that the capture is active and let you stop it.</li>
+      that the capture or the floating window is active and let you stop it.</li>
+  <li><strong>Display over other apps:</strong> only for the floating window. The app asks for it
+      the first time you open the window and draws nothing over other apps otherwise.</li>
   <li><strong>Internet and network state:</strong> used by Google AdMob to load ads and by
       Google Play Billing for the purchase.</li>
   <li><strong>Advertising ID:</strong> used by Google AdMob as described under Advertising.</li>
   <li><strong>Foreground service:</strong> to keep the internal audio capture open while you
-      switch between the analyzer and its settings, with a notification showing it is active.</li>
+      switch between the analyzer and its settings, and to keep reading the microphone for the
+      floating window while you use other apps, each with a notification showing it is active.</li>
 </ul>
 
 <h2>Advertising</h2>
