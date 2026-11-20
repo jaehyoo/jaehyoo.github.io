@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prism Privacy Policy</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1f1f1f; --muted: #5f6368; --accent: #3d5afe; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #121212; --fg: #e8eaed; --muted: #9aa0a6; --accent: #8c9eff; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.8rem; margin-bottom: 4px; }
+  h2 { font-size: 1.2rem; margin-top: 32px; }
+  .date { color: var(--muted); margin-top: 0; }
+  a { color: var(--accent); }
+  li { margin: 4px 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Prism Privacy Policy</h1>
+<p class="date">Effective date: September 20, 2026</p>
+
+<p>Prism ("the app") is an Android app that shows the frequency spectrum of the sound picked
+up by the phone's microphone, or of the sound other apps play on the phone. It is developed by
+jaehyoo ("we"). This policy explains what information the app handles and why.</p>
+
+<h2>Summary</h2>
+<ul>
+  <li>Sound is analyzed on your phone as it arrives and is never recorded, saved or sent anywhere.</li>
+  <li>We do not run any servers and do not collect personal information ourselves.</li>
+  <li>Your settings stay on your phone. Snapshots of the plot are saved or shared only when you ask.</li>
+  <li>The free version shows an ad from Google AdMob only when you open the settings, at most
+      once every 10 minutes, and AdMob collects some
+      device information as described below.</li>
+  <li>The "Remove ads" purchase is handled entirely by Google Play.</li>
+</ul>
+
+<h2>Audio</h2>
+<p>While the analyzer screen, the floating window or a home screen widget is live, the app reads short blocks of
+audio, turns them into frequency levels and draws them, then discards the audio. No audio is written to storage
+and no audio leaves the phone. The app's internet access is used only by the Google AdMob and
+Google Play Billing libraries described below, which never receive audio.</p>
+<p>When you choose internal audio as the input, Android asks you to allow screen capture.
+The app uses this only to receive the sound other apps play (media, games and unlabeled
+audio, as Android allows); it does not capture or read the screen image. Calls, notifications
+and system sounds are not captured, and apps can block capture of their own sound. A
+notification is shown for as long as the capture is active, and you can stop it from there
+or by switching back to the microphone.</p>
+<p>The floating window, which you open with its button or the launcher shortcut, keeps the
+spectrum in a see-through window over other apps. While it is open, the app keeps reading
+the microphone, or the internal audio capture you already started, in a foreground service,
+and shows a notification. It stops when you close the window, tap Close in the notification
+or open the app. The window only draws the spectrum; it does not read what other apps show.</p>
+<p>The home screen widgets (a spectrum analyzer and two level meters) start reading the
+microphone only when you tap one, in a foreground service with a notification, and stop when
+you tap again or stop it from the notification. They let go of the microphone while the screen
+is off or while the app or the floating window is using it.</p>
+
+<h2>Snapshots</h2>
+<p>When you choose to save a snapshot, the app saves a PNG picture of the plot on screen to the
+Pictures/Prism folder on your phone, where your gallery app can see it. When you choose to
+share one, the picture is handed to the app you pick from Android's share sheet, through a
+temporary copy in the app's own storage. A snapshot is only a picture of the plot; it contains
+no audio. The app never saves or shares a snapshot unless you ask it to.</p>
+
+<h2>Information stored on your device</h2>
+<p>The app stores the following only on your phone. It is never sent to us:</p>
+<ul>
+  <li>Your settings, such as the band resolution, peak hold, theme, language, input and screen
+      rotation, and where on the screen the floating window was last placed.</li>
+  <li>The display presets you save, under the names you give them.</li>
+  <li>Whether you bought "Remove ads", and when the last ad was shown, so ads stay at most once
+      every 10 minutes.</li>
+</ul>
+<p>Uninstalling the app or clearing its data removes this information.</p>
+
+<h2>Permissions</h2>
+<ul>
+  <li><strong>Microphone:</strong> to analyze the sound around you. Android also requires it
+      for capturing internal audio.</li>
+  <li><strong>Screen capture (internal audio only):</strong> Android grants access to other
+      apps' sound through its screen capture consent; you are asked each time you start it.</li>
+  <li><strong>Notifications:</strong> asked before the first internal audio capture, to show
+      that the capture, the floating window or the widgets are active and let you stop them.</li>
+  <li><strong>Display over other apps:</strong> only for the floating window. The app asks for it
+      the first time you open the window and draws nothing over other apps otherwise.</li>
+  <li><strong>Internet and network state:</strong> used by Google AdMob to load ads and by
+      Google Play Billing for the purchase.</li>
+  <li><strong>Advertising ID:</strong> used by Google AdMob as described under Advertising.</li>
+  <li><strong>Foreground service:</strong> to keep the internal audio capture open while you
+      switch between the analyzer and its settings, and to keep reading the microphone for the
+      floating window or the home screen widgets while you use other apps, each with a
+      notification showing it is active.</li>
+</ul>
+
+<h2>Advertising</h2>
+<p>The free version shows a full-screen ad provided by Google AdMob only when you open the
+settings, at most once every 10 minutes. To serve and measure ads,
+Google may collect information such as your device's advertising ID, IP address, device
+model, operating system and how you interact with ads. Google's use of this information is
+described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and
+<a href="https://policies.google.com/technologies/partner-sites">How Google uses information
+from sites or apps that use its services</a>.</p>
+<p>If you are in the European Economic Area, the United Kingdom or Switzerland, the app asks
+for your consent before personalized ads are shown, and you can change your choice later under
+Settings &gt; Ads &gt; Ad privacy settings in the app. Anywhere, you can reset your advertising
+ID or opt out of personalized ads in your phone's settings (Settings &gt; Google &gt; Ads, or
+Settings &gt; Privacy &gt; Ads).</p>
+<p>After you buy "Remove ads", the app no longer loads ads.</p>
+
+<h2>Purchases</h2>
+<p>The one-time "Remove ads" purchase is processed by Google Play. We never receive your payment details. The app only
+receives confirmation from Google Play that the purchase was made, so it can turn off ads and
+restore the purchase on your other devices.
+See the <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&amp;ldt=privacynotice">Google Payments Privacy Notice</a>.</p>
+
+<h2>Children</h2>
+<p>The app is not directed at children under 13, and we do not knowingly collect information
+from children.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the updated version will be posted on this page with a new
+effective date.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:jaehyoo.apps@gmail.com">jaehyoo.apps@gmail.com</a></p>
+</main>
+</body>
+</html>
