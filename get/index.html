@@ -122,7 +122,7 @@
   }
 
   card.innerHTML =
-    '<img class="icon" src="' + app.icon + '" alt="">' +
+    '<img class="icon" src="' + app.icon + '" alt="" onerror="if(!this.dataset.r){this.dataset.r=1;this.src=this.src;}">' +
     '<h1>' + esc(app.name) + '</h1>' +
     '<p class="sub">Free on Google Play</p>' +
     storeBtn +
@@ -132,11 +132,18 @@
     '</div>' +
     '<p class="web">' + esc(L.trouble) + ' <a href="' + playUrl(app.pkg) + '">' + esc(L.webLink) + '</a></p>';
 
+  // If the visitor comes back from the store and the icon failed to load
+  // (e.g. its load was cut off when the page jumped away), reload it.
+  window.addEventListener("pageshow", function () {
+    var img = document.querySelector(".icon");
+    if (img && (!img.complete || img.naturalWidth === 0)) { img.src = img.getAttribute("src"); }
+  });
+
   if (isAndroid && inIG) {
-    // Try to open the Play Store app right away. If we are still here after
-    // 2 seconds, the escape did not fire — show the manual fallback.
-    // If the visitor went to the store and came back, do NOT show the fallback:
-    // the store did open.
+    // Try to open the Play Store app. Wait for the app icon to finish
+    // loading first (never more than 1.5s) so it is actually visible if the
+    // visitor comes back from the store — firing the intent instantly used
+    // to cut the icon load off, leaving it blank on return.
     var escaped = false;
     function markEscaped() { escaped = true; }
     document.addEventListener("visibilitychange", function () {
@@ -145,7 +152,21 @@
     });
     window.addEventListener("pagehide", markEscaped);
     window.addEventListener("blur", markEscaped);
-    try { location.href = intentUrl(app.pkg); } catch (e) { /* fall through to fallback */ }
+    var fired = false;
+    function fireIntent() {
+      if (fired) return; fired = true;
+      try { location.href = intentUrl(app.pkg); } catch (e) { /* fall through to fallback */ }
+    }
+    var iconEl = document.querySelector(".icon");
+    var iconDone = false;
+    function iconReady() { if (!iconDone) { iconDone = true; fireIntent(); } }
+    if (iconEl && !iconEl.complete) {
+      iconEl.addEventListener("load", iconReady);
+      iconEl.addEventListener("error", iconReady); // never block the escape on a bad image
+      setTimeout(iconReady, 1500);
+    } else {
+      fireIntent();
+    }
     setTimeout(function () {
       if (!escaped && !document.hidden) {
         var f = document.getElementById("fallback");
