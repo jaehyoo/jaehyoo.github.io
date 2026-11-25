@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Get the app on Google Play</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f8f9fa; color: #202124; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .card { background: #fff; border-radius: 16px; box-shadow: 0 1px 6px rgba(0,0,0,.12); max-width: 420px; width: 100%; padding: 32px 24px; text-align: center; }
+  .icon { width: 96px; height: 96px; border-radius: 20px; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+  h1 { font-size: 22px; margin: 18px 0 6px; }
+  .sub { color: #5f6368; font-size: 15px; line-height: 1.5; margin-bottom: 22px; }
+  .btn { display: block; background: #01875f; color: #fff; text-decoration: none; font-size: 17px; font-weight: 600; padding: 14px 20px; border-radius: 999px; margin-bottom: 12px; }
+  .btn:active { background: #016a4b; }
+  .btn.secondary { background: #fff; color: #01875f; border: 1px solid #dadce0; font-weight: 500; }
+  .fallback { display: none; margin-top: 18px; padding-top: 18px; border-top: 1px solid #e8eaed; text-align: left; }
+  .fallback p { font-size: 14px; line-height: 1.6; color: #3c4043; margin-bottom: 10px; }
+  .fallback b { color: #202124; }
+  .web { font-size: 13px; color: #5f6368; margin-top: 14px; }
+  .web a { color: #1a73e8; }
+  .app-list { text-align: left; }
+  .app-row { display: flex; align-items: center; gap: 14px; padding: 12px 4px; border-bottom: 1px solid #e8eaed; text-decoration: none; color: #202124; }
+  .app-row:last-child { border-bottom: none; }
+  .app-row img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; }
+  .app-row .name { font-size: 17px; font-weight: 600; }
+  .app-row .tag { font-size: 13px; color: #5f6368; }
+  .app-row .go { margin-left: auto; color: #01875f; font-weight: 600; font-size: 15px; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <div id="loading">Play 스토어로 이동 중입니다…</div>
+</div>
+<script>
+(function () {
+  var APPS = {
+    tug:    { name: "Tug o' Sea",                pkg: "io.github.jaehyoo.tugosea", icon: "../assets/tugosea-icon.jpg", tag: "Arcade diving game" },
+    prism:  { name: "Prism — Spectrum Analyzer", pkg: "io.github.jaehyoo.prism",   icon: "../assets/prism-icon.png", tag: "Spectrum analyzer" },
+    nudge:  { name: "Nudge — Mouse Jiggler",     pkg: "io.github.jaehyoo.nudge",   icon: "../assets/nudge-icon.png", tag: "Keep your PC awake" }
+  };
+  var params = new URLSearchParams(location.search);
+  var key = params.get("app");
+  var app = APPS[key];
+  var card = document.getElementById("card");
+  var ua = navigator.userAgent || "";
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua);
+  var inIG = /Instagram/i.test(ua);
+
+  function playUrl(pkg) { return "https://play.google.com/store/apps/details?id=" + pkg; }
+  function intentUrl(pkg) {
+    return "intent://details?id=" + pkg +
+      "#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=" +
+      encodeURIComponent(playUrl(pkg)) + ";end";
+  }
+  function esc(str) { return String(str).replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  if (!app) {
+    // No app selected: show a chooser.
+    document.title = "jaehyoo apps — Google Play";
+    var html = '<h1>jaehyoo apps</h1><p class="sub">Choose an app to get it on Google Play.</p><div class="app-list">';
+    Object.keys(APPS).forEach(function (k) {
+      var a = APPS[k];
+      html += '<a class="app-row" href="?app=' + k + '"><img src="' + a.icon + '" alt=""><span><span class="name">' + esc(a.name) + '</span><br><span class="tag">' + esc(a.tag) + '</span></span><span class="go">Get &rsaquo;</span></a>';
+    });
+    html += '</div>';
+    card.innerHTML = html;
+    return;
+  }
+
+  document.title = app.name + " — Google Play";
+  var storeBtn, storeHref;
+  if (isAndroid && inIG) {
+    // Instagram in-app browser on Android: open the Play Store app directly.
+    storeHref = intentUrl(app.pkg);
+    storeBtn = '<a class="btn" href="' + storeHref + '">Get it on Google Play</a>';
+  } else if (inIG && isIOS) {
+    // Instagram in-app browser on iOS: escape to Safari, then the Play web page.
+    storeHref = "instagram://extbrowser/?url=" + encodeURIComponent(playUrl(app.pkg));
+    storeBtn = '<a class="btn" href="' + storeHref + '">Get it on Google Play</a>';
+  } else {
+    storeHref = playUrl(app.pkg);
+    storeBtn = '<a class="btn" href="' + storeHref + '">Get it on Google Play</a>';
+  }
+
+  card.innerHTML =
+    '<img class="icon" src="' + app.icon + '" alt="">' +
+    '<h1>' + esc(app.name) + '</h1>' +
+    '<p class="sub">Free on Google Play</p>' +
+    storeBtn +
+    '<div class="fallback" id="fallback">' +
+      '<p><b>스토어가 열리지 않았나요?</b><br>오른쪽 위 <b>⋮</b> 메뉴에서 <b>Chrome에서 열기</b>를 눌러주세요. 또는 아래 버튼을 다시 눌러주세요.</p>' +
+      '<a class="btn secondary" href="' + storeHref + '">다시 시도하기</a>' +
+    '</div>' +
+    '<p class="web">Having trouble? <a href="' + playUrl(app.pkg) + '">Open the Play Store web page</a></p>';
+
+  if (isAndroid && inIG) {
+    // Try to open the Play Store app right away. If we are still here after
+    // 2 seconds, the escape did not fire — show the manual fallback.
+    var escaped = false;
+    function markEscaped() { escaped = true; }
+    document.addEventListener("visibilitychange", function () { if (document.hidden) markEscaped(); });
+    window.addEventListener("pagehide", markEscaped);
+    window.addEventListener("blur", markEscaped);
+    try { location.href = intentUrl(app.pkg); } catch (e) { /* fall through to fallback */ }
+    setTimeout(function () {
+      if (!escaped && !document.hidden) {
+        var f = document.getElementById("fallback");
+        if (f) f.style.display = "block";
+      }
+    }, 2000);
+  } else if (!inIG) {
+    // Normal browser: go straight to the Play Store page.
+    location.replace(playUrl(app.pkg));
+  }
+})();
+</script>
+</body>
+</html>
